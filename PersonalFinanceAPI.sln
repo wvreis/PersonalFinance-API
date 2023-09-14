@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Domain", "PersonalFinance.Domain\PersonalFinance.Domain.csproj", "{A8088596-85B0-470A-A60E-30DDE9A12620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Infrastructure", "PersonalFinance.infrastructure\PersonalFinance.Infrastructure.csproj", "{A017A636-31E5-469E-943B-43CF2975BD4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Infrastructure", "PersonalFinance.Infrastructure\PersonalFinance.Infrastructure.csproj", "{A017A636-31E5-469E-943B-43CF2975BD4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

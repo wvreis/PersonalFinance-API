@@ -1,4 +1,3 @@
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.Application;
 using PersonalFinance.Domain.Interfaces;

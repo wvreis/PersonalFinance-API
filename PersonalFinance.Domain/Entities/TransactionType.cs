@@ -2,11 +2,11 @@
 
 public class TransactionType : BaseEntity
 {
-    public string Description { get; private set; }
+    public string Description { get; private set; } = string.Empty;
     public TransactionNature Nature { get; private set; }
     public int TransactionTypeGroupId { get; private set; }
     public TransactionTypeGroup? TransactionTypeGroup { get; private set; }
-    public List<Transaction> Transactions { get; private set; }
+    public List<Transaction> Transactions { get; private set; } = new();
 
     public TransactionType()
     {

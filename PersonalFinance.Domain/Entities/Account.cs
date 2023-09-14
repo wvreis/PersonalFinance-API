@@ -2,13 +2,13 @@
 
 public class Account : BaseEntity 
 {
-    public string Description { get; private set; }
+    public string Description { get; private set; } = string.Empty;
     public double OpeningBalance { get; private set; }
     public bool Status { get; private set; } = true;
     public int BankId { get; private set; }
-    public Bank Bank { get; set; }
+    public Bank? Bank { get; set; }
     public int AccountTypeId { get; private set; }
-    public AccountType AccountType { get; private set; }
+    public AccountType? AccountType { get; private set; }
     public List<Transaction> Transactions { get; private set; } = new();
 
     public Account()

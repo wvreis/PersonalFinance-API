@@ -6,7 +6,7 @@ public class Bank
 {
     [Key]
     public int Number { get; private set; }
-    public string Name { get; private set; }
+    public string Name { get; private set; } = string.Empty;
     public List<Account> Accounts { get; private set; } = new();
 
     public Bank(

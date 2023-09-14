@@ -2,8 +2,8 @@
 
 public class TransactionTypeGroup : BaseEntity
 {
-    public string Description { get; private set; }
-    public List<TransactionType> TransactionTypes { get; private set; }
+    public string Description { get; private set; } = string.Empty;
+    public List<TransactionType> TransactionTypes { get; private set; } = new();
 
     public TransactionTypeGroup()
     {
