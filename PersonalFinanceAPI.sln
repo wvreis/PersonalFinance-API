@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinanceAPI", "PersonalFinanceAPI\PersonalFinanceAPI.csproj", "{1EA2E059-89EA-4044-89F4-10812E6F7485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.API", "PersonalFinance.API\PersonalFinance.API.csproj", "{1EA2E059-89EA-4044-89F4-10812E6F7485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Application", "PersonalFinance.Application\PersonalFinance.Application.csproj", "{3FC9A4EA-9036-47EA-BD98-990156660477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Domain", "PersonalFinance.Domain\PersonalFinance.Domain.csproj", "{A8088596-85B0-470A-A60E-30DDE9A12620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Infrastructure", "PersonalFinance.infrastructure\PersonalFinance.Infrastructure.csproj", "{A017A636-31E5-469E-943B-43CF2975BD4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{1EA2E059-89EA-4044-89F4-10812E6F7485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA2E059-89EA-4044-89F4-10812E6F7485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EA2E059-89EA-4044-89F4-10812E6F7485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC9A4EA-9036-47EA-BD98-990156660477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC9A4EA-9036-47EA-BD98-990156660477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC9A4EA-9036-47EA-BD98-990156660477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC9A4EA-9036-47EA-BD98-990156660477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8088596-85B0-470A-A60E-30DDE9A12620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8088596-85B0-470A-A60E-30DDE9A12620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8088596-85B0-470A-A60E-30DDE9A12620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8088596-85B0-470A-A60E-30DDE9A12620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A017A636-31E5-469E-943B-43CF2975BD4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A017A636-31E5-469E-943B-43CF2975BD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A017A636-31E5-469E-943B-43CF2975BD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A017A636-31E5-469E-943B-43CF2975BD4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

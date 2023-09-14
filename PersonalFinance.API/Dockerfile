@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["PersonalFinanceAPI/PersonalFinanceAPI.csproj", "PersonalFinanceAPI/"]
-RUN dotnet restore "PersonalFinanceAPI/PersonalFinanceAPI.csproj"
+COPY ["PersonalFinance.API/PersonalFinance.API.csproj", "PersonalFinance.API/"]
+RUN dotnet restore "PersonalFinance.API/PersonalFinance.API.csproj"
 COPY . .
 WORKDIR "/src/PersonalFinanceAPI"
 RUN dotnet build "PersonalFinanceAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "PersonalFinanceAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "PersonalFinance.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "PersonalFinanceAPI.dll"]
+ENTRYPOINT ["dotnet", "PersonalFinance.API.dll"]
