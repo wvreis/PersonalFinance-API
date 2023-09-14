@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Accounts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalFinance.Domain\PersonalFinance.Domain.csproj" />
+    <ProjectReference Include="..\PersonalFinance.infrastructure\PersonalFinance.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

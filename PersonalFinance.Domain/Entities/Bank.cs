@@ -1,9 +1,12 @@
-﻿namespace PersonalFinance.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PersonalFinance.Domain.Entities;
 
 public class Bank
 {
-    public string Name { get; private set; }
+    [Key]
     public int Number { get; private set; }
+    public string Name { get; private set; }
     public List<Account> Accounts { get; private set; } = new();
 
     public Bank(
@@ -14,5 +17,9 @@ public class Bank
         Name = name;
         Number = number;
         Accounts = accounts;
+    }
+
+    public Bank()
+    {
     }
 }

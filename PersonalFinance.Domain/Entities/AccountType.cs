@@ -15,4 +15,8 @@ public class AccountType : BaseEntity
         Status = status;
         Accounts = accounts;
     }
+
+    public AccountType()
+    {
+    }
 }

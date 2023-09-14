@@ -12,8 +12,13 @@ public class UnitOfWork : IUnitOfWork
         _context = context;
     }
 
-    public async Task Commit(CancellationToken cancellationToken)
+    public async Task<bool> CommitAsync(CancellationToken cancellationToken)
     {
-        await _context.SaveChangesAsync(cancellationToken);
+        return await _context.SaveChangesAsync(cancellationToken) > 0;
+    }
+
+    public void Dispose()
+    {
+        _context.Dispose();
     }
 }

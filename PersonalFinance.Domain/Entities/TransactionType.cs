@@ -8,6 +8,11 @@ public class TransactionType : BaseEntity
     public TransactionTypeGroup? TransactionTypeGroup { get; private set; }
     public List<Transaction> Transactions { get; private set; }
 
+    public TransactionType()
+    {
+        
+    }
+
     public TransactionType(
         string description,
         TransactionNature nature,

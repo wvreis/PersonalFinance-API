@@ -4,12 +4,29 @@ public class Account : BaseEntity
 {
     public string Description { get; private set; }
     public double OpeningBalance { get; private set; }
-    public bool Status { get; private set; }
+    public bool Status { get; private set; } = true;
     public int BankId { get; private set; }
     public Bank Bank { get; set; }
     public int AccountTypeId { get; private set; }
-    public AccountType AccountType { get; set; }
-    public List<Transaction> Transactions { get; set; } = new();
+    public AccountType AccountType { get; private set; }
+    public List<Transaction> Transactions { get; private set; } = new();
+
+    public Account()
+    {
+        
+    }
+
+    public Account(
+        string description,
+        double openingBalance,
+        int bankId,
+        int accountTypeId)
+    {
+        Description = description;
+        OpeningBalance = openingBalance;
+        BankId = bankId;
+        AccountTypeId = accountTypeId;
+    }
 
     public Account(
         string description,

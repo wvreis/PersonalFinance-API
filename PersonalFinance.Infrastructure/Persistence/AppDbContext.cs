@@ -16,7 +16,7 @@ public class AppDbContext : DbContext
         base.OnModelCreating(builder);
 
         #region BANK
-        builder.Entity<Bank>()
+        builder.Entity<Bank>()            
             .HasMany(x => x.Accounts)
             .WithOne(x => x.Bank)
             .OnDelete(DeleteBehavior.Restrict);

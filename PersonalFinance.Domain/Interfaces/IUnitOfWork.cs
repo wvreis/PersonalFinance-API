@@ -2,5 +2,7 @@ namespace PersonalFinance.Domain.Interfaces;
 
 public interface IUnitOfWork
 {
-    Task Commit(CancellationToken cancellationToken);    
+    Task<bool> CommitAsync(CancellationToken cancellationToken);
+    void Dispose();
+    
 }

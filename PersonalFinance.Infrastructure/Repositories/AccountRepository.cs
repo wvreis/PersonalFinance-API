@@ -14,9 +14,7 @@ public class AccountRepository : BaseRepository<Account>, IAccountRepository
     public Task<List<Account>> GetAccountsSearch(string searchInfo, CancellationToken cancellationToken)
     {
         Expression<Func<Account, bool>> Search = account =>
-            !String.IsNullOrEmpty(searchInfo) ?
-                account.Description.ToLower().Contains(searchInfo.ToLower()) :
-            true;
+            string.IsNullOrEmpty(searchInfo) || account.Description.ToLower().Contains(searchInfo.ToLower());
 
         var result = _context.Accounts.Where(Search).ToListAsync(cancellationToken);
 

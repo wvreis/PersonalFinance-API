@@ -5,6 +5,11 @@ public class TransactionTypeGroup : BaseEntity
     public string Description { get; private set; }
     public List<TransactionType> TransactionTypes { get; private set; }
 
+    public TransactionTypeGroup()
+    {
+        
+    }
+
     public TransactionTypeGroup(string description, List<TransactionType> transactionTypes)
     {
         Description = description;

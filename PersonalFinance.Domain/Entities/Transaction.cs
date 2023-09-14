@@ -12,6 +12,11 @@ public class Transaction : BaseEntity
     public int TransactionTypeId { get; private set; }
     public TransactionType TransactionType { get; private set; }
 
+    public Transaction()
+    {
+        
+    }
+
     public Transaction(
         double amount,
         DateTime date,

@@ -2,7 +2,7 @@ namespace PersonalFinance.Domain.Interfaces;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {
-    void Create(T entity);
+    Task AddAsync(T entity, CancellationToken cancellationToken);
     void Update(T entity);
     void Delete(T entity);
     Task<T> Get(int id, CancellationToken cancellationToken);
