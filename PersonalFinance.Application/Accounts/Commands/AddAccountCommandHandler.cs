@@ -1,9 +1,8 @@
 using MediatR;
-using PersonalFinance.Application.Accounts.Commands;
 using PersonalFinance.Domain.Entities;
 using PersonalFinance.Domain.Interfaces;
 
-namespace PersonalFinance.Application.Accounts.Handlers;
+namespace PersonalFinance.Application.Accounts.Commands;
 
 public class AddAccountCommandHandler : IRequestHandler<AddAccountCommand, int>
 {

@@ -4,5 +4,5 @@ namespace PersonalFinance.Domain.Interfaces;
 
 public interface IAccountRepository : IBaseRepository<Account>
 {
-    Task<List<Account>> GetAccountsSearch(string searchInfo, CancellationToken cancellationToken);
+    Task<List<Account>> GetAccountsAsync(string? searchInfo, CancellationToken cancellationToken);
 }

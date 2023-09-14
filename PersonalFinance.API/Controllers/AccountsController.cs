@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.Accounts.Commands;
+using PersonalFinance.Application.Accounts.Queries;
 
 namespace PersonalFinance.API.Controllers;
 
@@ -13,6 +14,14 @@ public class AccountsController : ApiControllerBase
     public AccountsController(IMediator mediator)
     {
         _mediator = mediator;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<AccountDto>>> GetAccounts([FromQuery] GetAccountsQuery query)
+    {
+        var result = await _mediator.Send(query);
+        
+        return result;
     }
 
     [HttpPost]
