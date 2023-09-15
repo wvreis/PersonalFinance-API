@@ -29,6 +29,6 @@ public class AddAccountCommandHandlerTests
         // Assert
         accountRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<Account>(), It.IsAny<CancellationToken>()), Times.Once);
         unitOfWorkMock.Verify(unitOfWork => unitOfWork.CommitAsync(It.IsAny<CancellationToken>()), Times.Once);
-        Assert.Equal(0, result); // Assuming you expect the newly created entity's ID to be 1
+        Assert.Equal(0, result);
     }
 }
