@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.API", "PersonalFinance.API\PersonalFinance.API.csproj", "{1EA2E059-89EA-4044-89F4-10812E6F7485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.API", "src\PersonalFinance.API\PersonalFinance.API.csproj", "{1EA2E059-89EA-4044-89F4-10812E6F7485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Application", "PersonalFinance.Application\PersonalFinance.Application.csproj", "{3FC9A4EA-9036-47EA-BD98-990156660477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Application", "src\PersonalFinance.Application\PersonalFinance.Application.csproj", "{3FC9A4EA-9036-47EA-BD98-990156660477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Domain", "PersonalFinance.Domain\PersonalFinance.Domain.csproj", "{A8088596-85B0-470A-A60E-30DDE9A12620}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Domain", "src\PersonalFinance.Domain\PersonalFinance.Domain.csproj", "{A8088596-85B0-470A-A60E-30DDE9A12620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Infrastructure", "PersonalFinance.Infrastructure\PersonalFinance.Infrastructure.csproj", "{A017A636-31E5-469E-943B-43CF2975BD4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.Infrastructure", "src\PersonalFinance.Infrastructure\PersonalFinance.Infrastructure.csproj", "{A017A636-31E5-469E-943B-43CF2975BD4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6CA3E934-3B57-4D02-8BA3-FB15BAD59715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.ApplicationTests", "tests\PersonalFinance.ApplicationTests\PersonalFinance.ApplicationTests.csproj", "{80F20031-3454-40C6-9FCB-CC2BE5ED2C35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinance.DomainTests", "tests\PersonalFinance.DomainTests\PersonalFinance.DomainTests.csproj", "{AF9C688D-7B2B-4130-813C-C183D0EB3657}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,11 +39,23 @@ Global
 		{A017A636-31E5-469E-943B-43CF2975BD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A017A636-31E5-469E-943B-43CF2975BD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A017A636-31E5-469E-943B-43CF2975BD4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F20031-3454-40C6-9FCB-CC2BE5ED2C35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F20031-3454-40C6-9FCB-CC2BE5ED2C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F20031-3454-40C6-9FCB-CC2BE5ED2C35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F20031-3454-40C6-9FCB-CC2BE5ED2C35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9C688D-7B2B-4130-813C-C183D0EB3657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9C688D-7B2B-4130-813C-C183D0EB3657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9C688D-7B2B-4130-813C-C183D0EB3657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9C688D-7B2B-4130-813C-C183D0EB3657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BCD4B07-31D6-4C3E-BEC3-FD1CB97C0626}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80F20031-3454-40C6-9FCB-CC2BE5ED2C35} = {6CA3E934-3B57-4D02-8BA3-FB15BAD59715}
+		{AF9C688D-7B2B-4130-813C-C183D0EB3657} = {6CA3E934-3B57-4D02-8BA3-FB15BAD59715}
 	EndGlobalSection
 EndGlobal

@@ -31,7 +31,8 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 
     public async Task<T> Get(int id, CancellationToken cancellationToken)
     {
-        return await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        var result = await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        return result ?? throw new NullReferenceException($"Entidade com Id {id} não encontrada.");
     }
 
     public async Task<List<T>> GetAll(CancellationToken cancellationToken)

@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/PersonalFinance.API/bin/Debug/net7.0/PersonalFinance.API.dll",
+            "program": "${workspaceFolder}/src/PersonalFinance.API/bin/Debug/net7.0/PersonalFinance.API.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/PersonalFinance.API",
+            "cwd": "${workspaceFolder}/src/PersonalFinance.API",
             "stopAtEntry": false,            
             "serverReadyAction": {
                 "action": "openExternally",
