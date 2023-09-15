@@ -3,7 +3,8 @@ using PersonalFinance.Application;
 using PersonalFinance.Domain.Interfaces;
 using PersonalFinance.Infrastructure.Persistence;
 using PersonalFinance.Infrastructure.Repositories;
-
+using FluentValidation.AspNetCore;
+using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +14,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-builder.Services.AddCommands();
+builder.Services.AddApplicationService();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
