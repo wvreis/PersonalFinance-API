@@ -3,7 +3,8 @@ using PersonalFinance.Application;
 using PersonalFinance.Domain.Interfaces;
 using PersonalFinance.Infrastructure.Persistence;
 using PersonalFinance.Infrastructure.Repositories;
-
+using FluentValidation.AspNetCore;
+using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
