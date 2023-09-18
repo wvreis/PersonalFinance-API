@@ -16,7 +16,10 @@ public class AccountRepository : BaseRepository<Account>, IAccountRepository
         Expression<Func<Account, bool>> Search = account =>
             string.IsNullOrEmpty(searchInfo) || account.Description.ToLower().Contains(searchInfo.ToLower());
 
-        var result = _context.Accounts.Where(Search).ToListAsync(cancellationToken);
+        var result = _context.Accounts
+            .Include(x => x.Bank)
+            .Where(Search)
+            .ToListAsync(cancellationToken);
 
         return result;
     }

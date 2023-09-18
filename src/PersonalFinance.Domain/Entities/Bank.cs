@@ -2,9 +2,8 @@
 
 namespace PersonalFinance.Domain.Entities;
 
-public class Bank
-{
-    [Key]
+public class Bank : BaseEntity
+{    
     public int Number { get; private set; }
     public string Name { get; private set; } = string.Empty;
     public List<Account> Accounts { get; private set; } = new();
