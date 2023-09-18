@@ -26,7 +26,7 @@ public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, List<Ac
                 AccountType = acc.AccountType?.Description ?? string.Empty,
                 AccountTypeId = acc.AccountTypeId,
                 Bank = acc.Bank?.Name ?? string.Empty,
-                BankId = acc.Bank.Number,
+                BankId = acc.Bank?.Number ?? 0,
                 OpeningBalance = acc.OpeningBalance,
                 Status = acc.Status
             });
