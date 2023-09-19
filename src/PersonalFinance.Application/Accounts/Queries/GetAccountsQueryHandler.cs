@@ -1,5 +1,4 @@
 using MediatR;
-using PersonalFinance.Domain.Entities;
 using PersonalFinance.Domain.Interfaces;
 
 namespace PersonalFinance.Application.Accounts.Queries;
@@ -15,7 +14,7 @@ public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, List<Ac
 
     public async Task<List<AccountDto>> Handle(GetAccountsQuery request, CancellationToken cancellationToken)
     {
-        var accounts = await _accountRepository.GetAccountsAsync(request.SeachInfo, cancellationToken);
+        var accounts = await _accountRepository.GetAccountsAsync(request.SearchInfo, cancellationToken);
 
         List<AccountDto> accountsDtos = new();
 

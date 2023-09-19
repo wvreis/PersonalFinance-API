@@ -6,7 +6,7 @@ using PersonalFinance.Application.Accounts.Queries;
 namespace PersonalFinance.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 public class AccountsController : ApiControllerBase
 {
     private readonly IMediator _mediator;
@@ -14,6 +14,14 @@ public class AccountsController : ApiControllerBase
     public AccountsController(IMediator mediator)
     {
         _mediator = mediator;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<AccountDto>> GetAccount([FromQuery] GetAccountQuery query)
+    {
+        var result = await _mediator.Send(query);
+
+        return result;
     }
 
     [HttpGet]
