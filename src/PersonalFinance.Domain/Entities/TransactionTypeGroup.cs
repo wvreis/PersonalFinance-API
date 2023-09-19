@@ -10,9 +10,14 @@ public class TransactionTypeGroup : BaseEntity
         
     }
 
-    public TransactionTypeGroup(string description, List<TransactionType> transactionTypes)
+    public TransactionTypeGroup(string description)
     {
         Description = description;
-        TransactionTypes = transactionTypes;
     }
+
+    public TransactionTypeGroup(int id, string description) : this(description)
+    {
+        Id = id;
+    }
+    
 }

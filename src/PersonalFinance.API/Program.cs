@@ -31,6 +31,8 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Services.AddHostedService<AppDbContextSeedDatabase>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

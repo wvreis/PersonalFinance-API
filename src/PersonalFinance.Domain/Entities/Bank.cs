@@ -10,12 +10,10 @@ public class Bank : BaseEntity
 
     public Bank(
         string name,
-        int number,
-        List<Account> accounts)
-    {
+        int number
+    ){
         Name = name;
         Number = number;
-        Accounts = accounts;
     }
 
     public Bank()

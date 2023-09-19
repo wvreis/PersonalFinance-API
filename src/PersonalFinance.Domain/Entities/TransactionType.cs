@@ -16,14 +16,10 @@ public class TransactionType : BaseEntity
     public TransactionType(
         string description,
         TransactionNature nature,
-        int transactionTypeGroupId,
-        TransactionTypeGroup? transactionTypeGroup,
-        List<Transaction> transactions)
-    {
+        int transactionTypeGroupId
+    ){
         Description = description;
         Nature = nature;
         TransactionTypeGroupId = transactionTypeGroupId;
-        TransactionTypeGroup = transactionTypeGroup;
-        Transactions = transactions;
     }
 }

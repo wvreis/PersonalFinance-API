@@ -5,5 +5,5 @@ namespace PersonalFinance.Domain.Common;
 public abstract class BaseEntity
 {
     [Key]
-    public int Id { get; private set; }
+    public int Id { get; set; }
 }
