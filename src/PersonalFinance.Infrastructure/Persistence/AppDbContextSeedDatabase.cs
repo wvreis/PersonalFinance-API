@@ -18,10 +18,11 @@ public class AppDbContextSeedDatabase : IHostedService
     
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        await AddBanks();
-        await AddAccountTypes();
-        await AddTransactionTypeGroups();
-        await AddTransactionTypes();
+        await UpdateDatabase(cancellationToken);
+        await AddBanks(cancellationToken);
+        await AddAccountTypes(cancellationToken);
+        await AddTransactionTypeGroups(cancellationToken);
+        await AddTransactionTypes(cancellationToken);
     }
 
     public Task StopAsync(CancellationToken cancellationToken)
@@ -29,7 +30,16 @@ public class AppDbContextSeedDatabase : IHostedService
         throw new NotImplementedException();
     }
 
-    async Task AddBanks()
+    async Task UpdateDatabase(CancellationToken cancellationToken)
+    {
+        using (var scope = _scopeFactory.CreateAsyncScope()){
+            var _context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+            await _context.Database.EnsureCreatedAsync(cancellationToken);
+        }
+    }
+
+    async Task AddBanks(CancellationToken cancellationToken)
     {
         using (var scope = _scopeFactory.CreateScope()) {
             var _context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -37,13 +47,13 @@ public class AppDbContextSeedDatabase : IHostedService
             var alreadyRegistered = _context.Banks.ToList();
 
             if (!alreadyRegistered.Any()) {
-                await _context.Banks.AddRangeAsync(Banks.GetAll());
-                await _context.SaveChangesAsync();
+                await _context.Banks.AddRangeAsync(Banks.GetAll(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }
 
-    async Task AddAccountTypes()
+    async Task AddAccountTypes(CancellationToken cancellationToken)
     {
         using (var scope = _scopeFactory.CreateScope()) {
             var _context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -51,13 +61,13 @@ public class AppDbContextSeedDatabase : IHostedService
             var alreadyRegistered = _context.AccountTypes.ToList();
 
             if (!alreadyRegistered.Any()) {
-                await _context.AccountTypes.AddRangeAsync(AccountTypes.GetAll());  
-                await _context.SaveChangesAsync();
+                await _context.AccountTypes.AddRangeAsync(AccountTypes.GetAll(), cancellationToken);  
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }
 
-    async Task AddTransactionTypeGroups()
+    async Task AddTransactionTypeGroups(CancellationToken cancellationToken)
     {
         using (var scope = _scopeFactory.CreateScope()) {
             var _context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -65,18 +75,18 @@ public class AppDbContextSeedDatabase : IHostedService
             var alreadyRegistered = _context.TransactionTypeGroups.ToList();
 
             if (!alreadyRegistered.Any()) {
-                await _context.TransactionTypeGroups.AddRangeAsync(TransactionTypeGroups.GetAll());
+                await _context.TransactionTypeGroups.AddRangeAsync(TransactionTypeGroups.GetAll(), cancellationToken);
                 
                 string sql = $"ALTER SEQUENCE \"{nameof(_context.TransactionTypeGroups)}_Id_seq\" RESTART WITH {TransactionTypeGroups.GetAll().Count};";
 
                 _context.Database.ExecuteSqlRaw(sql);
 
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }
 
-    async Task AddTransactionTypes()
+    async Task AddTransactionTypes(CancellationToken cancellationToken)
     {
         using (var scope = _scopeFactory.CreateScope()) {
             var _context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -84,8 +94,8 @@ public class AppDbContextSeedDatabase : IHostedService
             var alreadyRegistered = _context.TransactionTypes.ToList();
 
             if (!alreadyRegistered.Any()) {
-                await _context.TransactionTypes.AddRangeAsync(TransactionTypes.GetAll());
-                await _context.SaveChangesAsync();
+                await _context.TransactionTypes.AddRangeAsync(TransactionTypes.GetAll(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }
