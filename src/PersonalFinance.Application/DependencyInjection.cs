@@ -11,7 +11,9 @@ public static class DependencyInjection {
     public static void AddApplicationDI(this IServiceCollection services)
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
-        services.AddScoped<IAccountRepository, AccountRepository>();   
+        services.AddScoped<IBankRepository, BankRepository>(); 
+        services.AddScoped<IAccountRepository, AccountRepository>();  
+        services.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
         services.AddFluentValidationAutoValidation(); 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());    
     }

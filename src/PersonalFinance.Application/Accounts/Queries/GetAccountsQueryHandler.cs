@@ -16,10 +16,10 @@ public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, List<Ac
     {
         var accounts = await _accountRepository.GetAccountsAsync(request.SearchInfo, cancellationToken);
 
-        List<AccountDto> accountsDtos = new();
+        List<AccountDto> accountsDto = new();
 
         accounts.ForEach(acc => {
-            accountsDtos.Add(new(){
+            accountsDto.Add(new(){
                 Id = acc.Id,
                 Description = acc.Description,
                 AccountType = acc.AccountType?.Description ?? string.Empty,
@@ -31,6 +31,6 @@ public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, List<Ac
             });
         });
 
-        return accountsDtos;
+        return accountsDto;
     }
 }

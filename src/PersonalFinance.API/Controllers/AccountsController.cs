@@ -2,6 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.Accounts.Commands;
 using PersonalFinance.Application.Accounts.Queries;
+using PersonalFinance.Application.AccountsTypes.Queries;
+using PersonalFinance.Application.Bank.Queries;
 
 namespace PersonalFinance.API.Controllers;
 
@@ -16,6 +18,7 @@ public class AccountsController : ApiControllerBase
         _mediator = mediator;
     }
 
+    #region GET
     [HttpGet]
     public async Task<ActionResult<AccountDto>> GetAccount([FromQuery] GetAccountQuery query)
     {
@@ -31,6 +34,23 @@ public class AccountsController : ApiControllerBase
         
         return result;
     }
+    
+    [HttpGet]
+    public async Task<ActionResult<List<BankDto>>> GetAllBanks([FromQuery] GetAllBanksQuery query)
+    {
+        var result = await _mediator.Send(query);
+
+        return result;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<AccountTypeDto>>> GetAllAccountsTypes([FromQuery] GetAllAccountsTypesQuery query)
+    {
+        var result = await _mediator.Send(query);
+
+        return result;
+    }
+    #endregion
 
     [HttpPost]
     public async Task<ActionResult> PostAccount(AddAccountCommand command)
