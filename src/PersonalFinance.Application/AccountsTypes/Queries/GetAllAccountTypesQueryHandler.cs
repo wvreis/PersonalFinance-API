@@ -1,18 +1,18 @@
 using MediatR;
 using PersonalFinance.Domain.Interfaces;
 
-namespace PersonalFinance.Application.AccountsTypes.Queries;
+namespace PersonalFinance.Application.AccountTypes.Queries;
 
-public class GetAllAccountsTypesQueryHandler : IRequestHandler<GetAllAccountsTypesQuery, List<AccountTypeDto>>
+public class GetAllAccountTypesQueryHandler : IRequestHandler<GetAllAccountTypesQuery, List<AccountTypeDto>>
 {
     private readonly IAccountTypeRepository _accountTypeRepository;
 
-    public GetAllAccountsTypesQueryHandler(IAccountTypeRepository accountTypeRepository)
+    public GetAllAccountTypesQueryHandler(IAccountTypeRepository accountTypeRepository)
     {
         _accountTypeRepository = accountTypeRepository;
     }
 
-    public async Task<List<AccountTypeDto>> Handle(GetAllAccountsTypesQuery request, CancellationToken cancellationToken)
+    public async Task<List<AccountTypeDto>> Handle(GetAllAccountTypesQuery request, CancellationToken cancellationToken)
     {
          var accountsTypes = await _accountTypeRepository.GetAll(cancellationToken);
 

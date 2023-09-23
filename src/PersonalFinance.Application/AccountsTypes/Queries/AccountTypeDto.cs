@@ -1,4 +1,4 @@
-namespace PersonalFinance.Application.AccountsTypes.Queries;
+namespace PersonalFinance.Application.AccountTypes.Queries;
 
 public class AccountTypeDto
 {
