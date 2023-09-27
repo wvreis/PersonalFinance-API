@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.Accounts.Commands;
+using PersonalFinance.Application.Accounts.Commands.AddAccount;
+using PersonalFinance.Application.Accounts.Commands.UpdateAccount;
 using PersonalFinance.Application.Accounts.Queries;
 using PersonalFinance.Application.AccountTypes.Queries;
 using PersonalFinance.Application.Bank.Queries;
@@ -37,7 +39,15 @@ public class AccountsController : ApiControllerBase
     #endregion
 
     [HttpPost]
-    public async Task<ActionResult> PostAccount(AddAccountCommand command)
+    public async Task<ActionResult> PostAccount([FromBody] AddAccountCommand command)
+    {
+        var result = await Mediator.Send(command);
+
+        return Ok(result);
+    }
+
+    [HttpPut]
+    public async Task<ActionResult> PutAccount([FromBody]  UpdateAccountCommand command)
     {
         var result = await Mediator.Send(command);
 

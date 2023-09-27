@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace PersonalFinance.Application.Accounts.Commands;
+namespace PersonalFinance.Application.Accounts.Commands.AddAccount;
 
 public class AddAccountCommandValidator : AbstractValidator<AddAccountCommand>
 {

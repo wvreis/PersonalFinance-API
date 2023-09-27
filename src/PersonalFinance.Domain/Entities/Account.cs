@@ -1,4 +1,6 @@
-﻿namespace PersonalFinance.Domain.Entities; 
+﻿using System.Data;
+
+namespace PersonalFinance.Domain.Entities; 
 
 public class Account : BaseEntity 
 {
@@ -44,5 +46,28 @@ public class Account : BaseEntity
         AccountTypeId = accountTypeId;
         AccountType = accountType;
         Bank = bank;
+    }
+
+    public void Update(
+        bool? status = null,
+        string? description = null,
+        double? openingBalance = null,
+        int? bankId = null,
+        int? accountTypeId = null)
+    {
+        if (status.HasValue)
+            Status = status.Value;
+
+        if (!string.IsNullOrEmpty(description))            
+            Description = description;
+
+        if (openingBalance.HasValue)
+            OpeningBalance = openingBalance.Value;
+
+        if (bankId.HasValue)
+            BankId = bankId.Value;
+
+        if (accountTypeId.HasValue)
+            AccountTypeId = accountTypeId.Value;
     }
 }
