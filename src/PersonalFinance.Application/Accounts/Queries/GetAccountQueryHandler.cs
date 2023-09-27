@@ -23,7 +23,7 @@ public class GetAccountQueryHandler : IRequestHandler<GetAccountQuery, AccountDt
             AccountType = account.AccountType?.Description ?? string.Empty,
             AccountTypeId = account.AccountTypeId,
             Bank = account.Bank?.Name ?? string.Empty,
-            BankId = account.Bank?.Number ?? 0,
+            BankId = account.BankId,
             OpeningBalance = account.OpeningBalance,
             Status = account.Status
         };
