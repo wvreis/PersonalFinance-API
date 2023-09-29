@@ -2,7 +2,7 @@ using MediatR;
 using PersonalFinance.Domain.Entities;
 using PersonalFinance.Domain.Interfaces;
 
-namespace PersonalFinance.Application.Accounts.Commands;
+namespace PersonalFinance.Application.Accounts.Commands.AddAccount;
 
 public class AddAccountCommandHandler : IRequestHandler<AddAccountCommand, int>
 {
@@ -25,7 +25,6 @@ public class AddAccountCommandHandler : IRequestHandler<AddAccountCommand, int>
         );
 
         await _accountRepository.AddAsync(entity, cancellationToken);
-
         await _unitOfWork.CommitAsync(cancellationToken);
 
         return entity.Id;

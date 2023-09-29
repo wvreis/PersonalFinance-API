@@ -1,4 +1,4 @@
-using PersonalFinance.Application.Accounts.Commands;
+using PersonalFinance.Application.Accounts.Commands.AddAccount;
 using PersonalFinance.Domain.Entities;
 using PersonalFinance.Domain.Interfaces;
 
