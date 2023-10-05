@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PersonalFinance.Application;
+using PersonalFinance.Application.ExceptionMiddlewares;
 using PersonalFinance.Domain.Interfaces;
 using PersonalFinance.Infrastructure.Persistence;
 using PersonalFinance.Infrastructure.Repositories;
@@ -24,14 +25,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: AngularDevPolicy,
-                      policy  =>
-                      {
-                          policy
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .WithOrigins("http://localhost:4200");
-                      });
+    options.AddPolicy(
+        name: AngularDevPolicy,
+        policy  => {
+            policy
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .WithOrigins("http://localhost:4200");
+        });
 });
 
 builder.Services.AddHostedService<AppDbContextSeedDatabase>();
@@ -47,6 +48,8 @@ if (app.Environment.IsDevelopment()) {
 app.UseCors(AngularDevPolicy);
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
