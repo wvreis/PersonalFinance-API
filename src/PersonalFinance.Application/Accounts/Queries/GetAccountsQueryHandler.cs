@@ -31,6 +31,8 @@ public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, List<Ac
             });
         });
 
-        return accountsDto;
+        return accountsDto
+            .OrderBy(account => account.Description)
+            .ToList();
     }
 }

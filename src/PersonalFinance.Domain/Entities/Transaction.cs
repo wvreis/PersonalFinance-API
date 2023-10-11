@@ -24,6 +24,24 @@ public class Transaction : BaseEntity
         TransactionStatus status,
         TransactionNature nature,
         int accountId,
+        int transactionTypeId)
+    {
+        Amount = amount;
+        Date = date;
+        Description = description;
+        Status = status;
+        Nature = nature;
+        AccountId = accountId;
+        TransactionTypeId = transactionTypeId;
+    }
+
+    public Transaction(
+        double amount,
+        DateTime date,
+        string description,
+        TransactionStatus status,
+        TransactionNature nature,
+        int accountId,
         int transactionTypeId,
         TransactionType transactionType,
         Account account)
@@ -38,4 +56,35 @@ public class Transaction : BaseEntity
         TransactionType = transactionType;
         Account = account;
     }
+
+    public void Update(
+        double? amount,
+        DateTime? date = null,
+        string? description = null,
+        TransactionStatus? status = null,
+        TransactionNature? nature = null,
+        int? accountId = null,
+        int? transactionTypeId = null)
+    {
+        if (amount.HasValue)
+            Amount = amount.Value;
+
+        if (date.HasValue) 
+            Date = date.Value;
+
+        if (!string.IsNullOrEmpty(description))
+            Description = description;
+        
+        if (status.HasValue)
+            Status = status.Value;
+
+        if (nature.HasValue)
+            Nature = nature.Value;
+
+        if (accountId.HasValue) 
+            AccountId = accountId.Value;
+
+        if (transactionTypeId.HasValue)
+            TransactionTypeId = transactionTypeId.Value;
+    }   
 }

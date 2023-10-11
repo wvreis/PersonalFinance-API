@@ -1,7 +1,5 @@
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PersonalFinance.Application.Accounts.Commands;
 using PersonalFinance.Application.Accounts.Commands.AddAccount;
 using PersonalFinance.Application.Accounts.Commands.UpdateAccount;
 using PersonalFinance.Application.Accounts.Queries;
