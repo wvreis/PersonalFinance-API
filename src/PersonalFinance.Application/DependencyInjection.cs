@@ -15,6 +15,7 @@ public static class DependencyInjection {
         services.AddScoped<IAccountRepository, AccountRepository>();  
         services.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
+        services.AddScoped<ITransactionTypeRepository, TransactionTypeRepository>();
         services.AddFluentValidationAutoValidation(); 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());    
     }

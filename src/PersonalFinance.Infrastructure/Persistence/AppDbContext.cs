@@ -41,6 +41,10 @@ public class AppDbContext : DbContext
             .HasMany(x => x.Transactions)
             .WithOne(x => x.TransactionType)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<TransactionType>()
+            .Navigation(x => x.TransactionTypeGroup)
+            .AutoInclude();
         #endregion
 
         #region TRANSACTIONTYPEGROUPS

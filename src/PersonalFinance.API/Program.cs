@@ -5,7 +5,7 @@ using PersonalFinance.Domain.Interfaces;
 using PersonalFinance.Infrastructure.Persistence;
 using PersonalFinance.Infrastructure.Repositories;
 
-var  AngularDevPolicy = "AngularDevPolicy";
+var AngularDevPolicy = "AngularDevPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

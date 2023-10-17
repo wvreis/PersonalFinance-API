@@ -1,4 +1,3 @@
-using System.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.Transactions.Commands.AddTransaction;
