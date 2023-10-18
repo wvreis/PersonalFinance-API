@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var corsOrigin = builder.Configuration.GetValue<string>("CorsOrigin") ?? throw new InvalidOperationException("Cors Origin not found.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
@@ -31,7 +32,7 @@ builder.Services.AddCors(options =>
             policy
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .WithOrigins("http://localhost:4200");
+                .WithOrigins(corsOrigin);
         });
 });
 
