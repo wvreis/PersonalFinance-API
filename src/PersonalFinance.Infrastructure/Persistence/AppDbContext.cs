@@ -54,20 +54,26 @@ public class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.Restrict);
         #endregion
 
-        // #region TRANSACTIONS
-        // builder.Entity<Transaction>(b =>
-        // {
-        //     if (Database.IsNpgsql())
-        //     {
-        //         b.HasGeneratedTsVectorColumn(
-        //             p => p.SearchVector,
-        //             "portuguese",
-        //             p => new { p.Description })
-        //             .HasIndex(p => p.SearchVector)
-        //             .HasMethod("GIN");
-        //     }
-        // });
-        // #endregion
+        #region TRANSACTIONS
+        //builder.Entity<Transaction>(b => {
+        //    if (Database.IsNpgsql()) {
+        //        b.HasGeneratedTsVectorColumn(
+        //            p => p.SearchVector,
+        //            "portuguese",
+        //            p => new { p.Description })
+        //            .HasIndex(p => p.SearchVector)
+        //            .HasMethod("GIN");
+        //    }
+        //});
+
+        builder.Entity<Transaction>()
+            .Navigation(x => x.TransactionType)
+            .AutoInclude();
+
+        builder.Entity<Transaction>()
+            .Navigation(x => x.Account)
+            .AutoInclude();
+        #endregion
     }
 
     public DbSet<Bank> Banks { get; set; }

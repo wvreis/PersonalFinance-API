@@ -14,7 +14,13 @@ public class GetTransactionsQueryHandler : IRequestHandler<GetTransactionsQuery,
 
     public async Task<List<TransactionDto>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
     {
-        var transactions = await _transactionRepository.GetTransactionsAsync(request.SearchInfo, cancellationToken);
+        var transactions = await _transactionRepository.GetTransactionsAsync(
+            request.SearchInfo,
+            request.StartDate,
+            request.EndDate,
+            request.Nature,
+            request.Status,
+            cancellationToken);
 
         List<TransactionDto> transactionDto = new();
 
@@ -30,7 +36,7 @@ public class GetTransactionsQueryHandler : IRequestHandler<GetTransactionsQuery,
                 Account = transaction.Account?.Description ?? string.Empty,
                 TransactionTypeId = transaction.TransactionTypeId,
                 TransactionType = transaction.TransactionType?.Description ?? string.Empty
-                });
+            });
         });
 
         return transactionDto;
