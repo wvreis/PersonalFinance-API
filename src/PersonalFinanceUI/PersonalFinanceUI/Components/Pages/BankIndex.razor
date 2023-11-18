@@ -1,0 +1,52 @@
+﻿@page "/banks"
+@using PersonalFinanceUI.Models
+@using Restap.Components
+@rendermode InteractiveServer
+
+<h3>BankIndex</h3>
+
+<PageIndex Title="Cadastro de Bancos"
+           Items="Banks"
+           IsActive="true">
+    <Filters>
+
+    </Filters>
+
+    <Listing>
+        @if (Banks is not null) 
+        {
+            @foreach (var bank in Banks) 
+            {
+                <Card URL="banks">
+                    <span>@bank.Name</span>
+                    <br>
+                </Card>
+            }
+        }
+    </Listing>
+</PageIndex>
+
+@code {
+    List<BankDto> Banks { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Banks.Add(new() {
+            Name = "Banco do Brasil"
+        });
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(3000);
+
+        if (firstRender) {
+            Banks.Add(new() { 
+                Name = "Bradesco"
+            });
+        }
+
+        base.OnAfterRender(firstRender);
+        StateHasChanged();
+    }
+}

@@ -1,0 +1,38 @@
+﻿@page "/bankswasm"
+@using PersonalFinanceUI.Client.Models
+@rendermode InteractiveAuto
+
+<h3>BankIndex</h3>
+
+<PageIndex Title="Cadastro de Bancos"
+           Items="Banks"
+           IsActive="true">
+    <Filters>
+
+    </Filters>
+
+    <Listing>
+        @if (Banks is not null) 
+        {
+            @foreach (var bank in Banks) {
+                <Card>
+                    <span>@bank.Name</span>
+                </Card>
+            }
+        }
+    </Listing>
+</PageIndex>
+
+@code {
+    List<BankDto> Banks { get; set; } = new();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) {
+            Banks.Add(new() {
+                Name = "Banco do Brasil."
+            });
+            StateHasChanged();
+        }
+    }
+}

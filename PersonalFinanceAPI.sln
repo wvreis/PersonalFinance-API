@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinance.DomainTests", "tests\PersonalFinance.DomainTests\PersonalFinance.DomainTests.csproj", "{AF9C688D-7B2B-4130-813C-C183D0EB3657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinanceUI", "src\PersonalFinanceUI\PersonalFinanceUI\PersonalFinanceUI.csproj", "{3FB01974-1B94-42EE-AD95-1B12FDED5B14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinanceUI", "src\PersonalFinanceUI\PersonalFinanceUI\PersonalFinanceUI.csproj", "{3FB01974-1B94-42EE-AD95-1B12FDED5B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalFinanceUI.Client", "src\PersonalFinanceUI\PersonalFinanceUI.Client\PersonalFinanceUI.Client.csproj", "{BA9FD9D6-FA2E-4783-8BDC-CDBEBC1CCC26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalFinanceUI.Client", "src\PersonalFinanceUI\PersonalFinanceUI.Client\PersonalFinanceUI.Client.csproj", "{BA9FD9D6-FA2E-4783-8BDC-CDBEBC1CCC26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
