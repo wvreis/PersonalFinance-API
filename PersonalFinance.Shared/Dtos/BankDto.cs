@@ -1,4 +1,4 @@
-namespace PersonalFinance.Application.Bank.Queries;
+namespace PersonalFinance.Shared.Dtos;
 
 public class BankDto
 {

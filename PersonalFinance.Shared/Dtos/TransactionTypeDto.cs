@@ -1,6 +1,6 @@
 ﻿using PersonalFinance.Domain.Enums;
 
-namespace PersonalFinance.Application.TransactionTypes.Queries; 
+namespace PersonalFinance.Shared.Dtos;
 public class TransactionTypeDto {
     public int Id { get; set; }
     public string Description { get; set; } = string.Empty;

@@ -1,4 +1,5 @@
 using MediatR;
+using PersonalFinance.Shared.Dtos;
 
 namespace PersonalFinance.Application.Accounts.Queries;
 

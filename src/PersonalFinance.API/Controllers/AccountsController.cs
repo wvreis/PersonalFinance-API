@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.Accounts.Commands.AddAccount;
 using PersonalFinance.Application.Accounts.Commands.UpdateAccount;
 using PersonalFinance.Application.Accounts.Queries;
+using PersonalFinance.Shared.Dtos;
 
 namespace PersonalFinance.API.Controllers;
 

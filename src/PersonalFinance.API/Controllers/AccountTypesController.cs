@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PersonalFinance.Application.AccountTypes.Queries;
+using PersonalFinance.Shared.Dtos;
 
 namespace PersonalFinance.API.Controllers;
 

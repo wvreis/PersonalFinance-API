@@ -10,7 +10,7 @@ namespace PersonalFinance.Application;
 public static class DependencyInjection {
     public static void AddApplicationDI(this IServiceCollection services)
     {
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
         services.AddScoped<IBankRepository, BankRepository>(); 
         services.AddScoped<IAccountRepository, AccountRepository>();  
         services.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
