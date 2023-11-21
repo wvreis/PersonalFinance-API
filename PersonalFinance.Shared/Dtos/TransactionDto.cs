@@ -1,6 +1,6 @@
 using PersonalFinance.Domain.Enums;
 
-namespace PersonalFinance.Application.Transactions.Queries;
+namespace PersonalFinance.Shared.Dtos;
 
 public class TransactionDto
 {

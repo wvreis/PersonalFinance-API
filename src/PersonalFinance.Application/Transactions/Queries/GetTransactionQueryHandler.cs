@@ -1,5 +1,6 @@
 using MediatR;
 using PersonalFinance.Domain.Interfaces;
+using PersonalFinance.Shared.Dtos;
 
 namespace PersonalFinance.Application.Transactions.Queries;
 
