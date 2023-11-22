@@ -5,7 +5,7 @@ using PersonalFinance.Domain.Interfaces;
 using PersonalFinance.Infrastructure.Persistence;
 using PersonalFinance.Infrastructure.Repositories;
 
-var AngularDevPolicy = "AngularDevPolicy";
+const string UIPolicy = "UIPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,12 +27,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
-        name: AngularDevPolicy,
+        name: UIPolicy,
         policy  => {
             policy
+                //.WithOrigins(corsOrigin)
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
-                .AllowAnyMethod()
-                .WithOrigins(corsOrigin);
+                .AllowAnyMethod();
         });
 });
 
@@ -46,7 +47,7 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwaggerUI();
 }
 
-app.UseCors(AngularDevPolicy);
+app.UseCors(UIPolicy);
 
 app.UseHttpsRedirection();
 

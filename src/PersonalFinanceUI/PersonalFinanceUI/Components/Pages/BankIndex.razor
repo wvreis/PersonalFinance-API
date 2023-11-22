@@ -27,26 +27,14 @@
 </PageIndex>
 
 @code {
-    List<BankDto> Banks { get; set; } = new();
+    List<BankDto>? Banks { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        Banks.Add(new() {
-            Name = "Banco do Brasil"
-        });
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await Task.Delay(3000);
-
-        if (firstRender) {
-            Banks.Add(new() { 
-                Name = "Bradesco"
-            });
+        using (var http = new HttpClient()) {
+            Banks = await http.GetFromJsonAsync<List<BankDto>>("https://localhost:7222/api/Banks/GetAllBanks") ?? new();
         }
 
-        base.OnAfterRender(firstRender);
         StateHasChanged();
     }
 }

@@ -24,14 +24,15 @@
 </PageIndex>
 
 @code {
-    List<BankDto> Banks { get; set; } = new();
+    List<BankDto>? Banks { get; set; }
 
-    protected override void OnAfterRender(bool firstRender)
+    protected override async void OnAfterRender(bool firstRender)
     {
         if (firstRender) {
-            Banks.Add(new() {
-                Name = "Banco do Brasil."
-            });
+            using (var http = new HttpClient()) {
+                Banks = await http.GetFromJsonAsync<List<BankDto>>("https://localhost:7222/api/Banks/GetAllBanks") ?? new();
+            }
+        
             StateHasChanged();
         }
     }
